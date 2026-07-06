@@ -21,10 +21,11 @@ Algoritmo TSP_Programacion_Dinamica
     Para mask <- 31 Hasta 1 Con Paso -1 Hacer
         Para u <- 0 Hasta 4 Hacer
             Si mask = 31 Entonces
-                memo[mask, u] <- distancias[u, 0]
+                memo[mask, u] <- distancias[u, 0] // Caso base: regresar a la Ciudad 1 (índice 0)
             Sino
                 min_costo <- 999999
                 Para v <- 0 Hasta 4 Hacer
+                    // Comprobación de bit no visitado en Base 0
                     bit_v <- Trunc(mask / (2^v)) Mod 2
                     Si bit_v = 0 Entonces
                         prox_mask <- mask + (2^v)
